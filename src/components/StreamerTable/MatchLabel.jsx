@@ -20,7 +20,7 @@ export default function MatchLabel({ url, matchRate }) {
         color: "#e2dbf0",
         padding: "2px 10px",
         textAlign: "left",
-        minWidth: "10vw",
+        width: "300px",
         borderRadius: "5px",
         cursor: "pointer",
       }}
