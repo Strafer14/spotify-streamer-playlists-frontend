@@ -1,0 +1,12 @@
+.streamer-table {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(1, 5vw);
+  grid-gap: 10px;
+  font-family: Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.streamer-table a,
+div {
+  justify-self: start;
+}
