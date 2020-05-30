@@ -7,9 +7,9 @@ export default function MatchLabel({ url, matchRate }) {
   );
   const rate = () => {
     const matchRateInt = parseInt(matchRate.slice(0, -1));
-    if (matchRateInt > 0.6) return { label: streamerName, color: "#5cb85c" };
-    if (matchRateInt > 0.4) return { label: streamerName, color: "#FFDB58" };
-    else return { label: streamerName, color: "#F1AF8F" };
+    if (matchRateInt > 6) return { label: streamerName, color: "#5cb85c" };
+    if (matchRateInt > 4) return { label: streamerName, color: "#FFDB58" };
+    else return { label: streamerName, color: "#FF6961" };
   };
   const rateObj = rate(matchRate);
   return (
