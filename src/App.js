@@ -33,6 +33,7 @@ function App() {
   }, []);
 
   async function getStreamers(token) {
+    window.amplitude.logEvent("Get streamers request", { token });
     setLoading(true);
     const headers = {
       Accept: "application/json",
@@ -89,6 +90,7 @@ function App() {
       )
       .value();
     delete resultsObj.undefined;
+    window.amplitude.logEvent("Received results", { resultsObj });
     setResults(resultsObj);
     setLoading(false);
   }
