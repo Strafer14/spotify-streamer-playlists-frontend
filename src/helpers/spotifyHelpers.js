@@ -68,14 +68,14 @@ export async function getStreamers(token) {
     .invert()
     .invert()
     .reduceRight((current, val, key) => {
-      current[key] = parseInt(val);
-      return current;
-    }, {})
-    .mapValues(
-      (value) => `${String((value / flattenedSongs.length) * 100).slice(0, 4)}%`
-    )
-    .value();
-  delete resultsObj.undefined;
+      if (key === "undefined") return current;
+      return current.concat({
+        name: key,
+        value: (parseInt(val) / flattenedSongs.length) * 100
+      });
+    }, [])
+    .value()
+    .slice(0, 3);
   window.amplitude.logEvent("Received results", { resultsObj });
   return resultsObj;
 }

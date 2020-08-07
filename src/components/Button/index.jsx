@@ -2,9 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-export default function Button({ icon, color, text }) {
+export default function Button({ onClick, icon, color, text }) {
   return (
-    <div className="custom-button" style={{ backgroundColor: color }}>
+    <div
+      onClick={onClick}
+      className="custom-button"
+      style={{ backgroundColor: color }}
+    >
       {icon}
       <span>{text}</span>
     </div>
@@ -12,6 +16,7 @@ export default function Button({ icon, color, text }) {
 }
 
 Button.propTypes = {
+  onClick: PropTypes.func,
   text: PropTypes.string,
   icon: PropTypes.object,
   color: PropTypes.string,
@@ -19,4 +24,5 @@ Button.propTypes = {
 
 Button.defaultProps = {
   color: "#f36b7f",
+  onClick: null,
 };
