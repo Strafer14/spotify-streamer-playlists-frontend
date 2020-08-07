@@ -1,5 +1,5 @@
 import React from "react";
-import spotifySvg from "../../Spotify_logo_without_text.svg";
+import spotifySvg from "../../static/Spotify_logo_without_text.svg";
 
 export default function SpotifyButton() {
   return (
