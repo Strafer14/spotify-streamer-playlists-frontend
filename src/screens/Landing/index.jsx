@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FaSpotify } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import {
   extractSpotifyToken,
   getStreamers,
@@ -8,8 +9,9 @@ import Button from "../../components/Button";
 import pablo from "../../static/pablo.svg";
 import Content from "./components/Content";
 import Title from "./components/Title";
-import { useHistory } from "react-router-dom";
 import "./style.css";
+
+export let AppContext = React.createContext({ streamers: {} });;
 
 export default function Landing() {
   const history = useHistory();
@@ -18,7 +20,7 @@ export default function Landing() {
     if (token) {
       getStreamers(`Bearer ${token}`)
         .then((res) => {
-          console.log(res);
+          AppContext = React.createContext({ streamers: res });
           history.push("/success");
         })
         .catch((e) => {
